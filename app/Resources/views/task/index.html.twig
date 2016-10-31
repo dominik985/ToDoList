@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+<h2 class="page-header">Zadania do wykonania</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            {#<th>#</th>#}
+            <th>Tytuł</th>
+            <th>Data Wykonania</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in tasks %}
+        <tr>
+            {#<th scope="row">{{ task.id }}</th>#}
+                <td>{{ task.title }}</td>
+                <td>{% if task.date %}{{ task.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <a href="{{ path('task_show', { 'id': task.id }) }}" class="btn btn-success">Pokaż</a>
+                    <a href="{{ path('task_edit', { 'id': task.id }) }}" class="btn btn-default">Edytuj</a>
+                </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

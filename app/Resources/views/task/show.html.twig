@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <h2 class="page-header">Zadanie</h2>
+
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            {#<th>#</th>#}
+            <th>Tytuł</th>
+            <th>Opis</th>
+            <th>Data Wykonania</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                {#<th scope="row">{{ task.id }}</th>#}
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{% if task.date %}{{ task.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+    <h4>
+
+        {{ form_start(delete_form) }}
+        <a href="{{ path('task_index') }}" class="btn btn-default">Wyświetl wszystkie</a>
+        <a href="{{ path('task_edit', { 'id': task.id }) }}" class="btn btn-success">Edytuj</a>
+        <input type="submit" value="Usuń" class="btn btn-danger">
+        {{ form_end(delete_form) }}
+    </h4>
+
+{% endblock %}
