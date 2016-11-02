@@ -1,5 +1,9 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/fosuser/css/style.css') }}">
+{% endblock %}
+
     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
         <div class="box" style="padding: 20px">
             <h3>{{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
