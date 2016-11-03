@@ -30,6 +30,7 @@
                     <input type="checkbox" id="remember_me" name="_remember_me" checked />
                     <span class="remember_me">{{ 'security.login.remember_me'|trans }}</span>
                     <input type="submit" class="button" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                    <br><br><br><a href="{{ path('fos_user_registration_register')}}">Zarejestruj</a>
                 </div>
 
                     {% if error %}
