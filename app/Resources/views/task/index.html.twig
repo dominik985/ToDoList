@@ -2,12 +2,15 @@
 
 
 {% block body %}
-
-<h2 class="page-header">Zadania do wykonania</h2>
+<div class="row">
+    <div class="col-md-12">
+        <h2 class="page-header">Zadania do wykonania</h2>
+    </div>
+</div>
 <table class="table table-striped">
     <thead>
         <tr>
-            {#<th>#</th>#}
+            <th>Lp.</th>
             <th>Tytuł</th>
             <th>Data Wykonania</th>
             <th></th>
@@ -16,7 +19,7 @@
     <tbody>
         {% for task in tasks %}
         <tr>
-            {#<th scope="row">{{ task.id }}</th>#}
+                <td>{{ loop.index }}.</td>
                 <td>{{ task.title }}</td>
                 <td>{% if task.date %}{{ task.date|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>
